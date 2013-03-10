@@ -1,0 +1,21 @@
+#title,
+#showssid,
+#qrcode {
+    text-align: center;
+}
+
+#form {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#showssid {
+    display: none;
+}
+
+#ssid,
+#key {
+    width: 100%;
+}

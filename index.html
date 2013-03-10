@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pure JS WiFi QR Code Generator</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" href="style.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+</head>
+<body>
+    <h1 id="title">pure JS WiFi QR Code Generator</h1>
+    <div id="form">
+        <p>
+        <label for="ssid">SSID:</label><br/>
+        <input name="ssid" id="ssid" /><br/>
+        
+        <label for="hidden">Hidden:</label>
+        <input type="checkbox" name="hidden" id="hidden" />
+        </p>
+        <p>
+        <label for="enc">Encryption:</label><br/>
+        <select name="enc" id="enc">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">None</option>
+        </select>
+        </p>
+        <p id="key-p">
+        <label for="key" id="key-label">Key:</label><br/>
+        <input name="key" id="key" />
+        </p>
+        <p>
+        <button id="generate">Generate!</button>
+        </p>
+    </div>
+    <h1 id="showssid"></h1>
+    <div id="qrcode"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
+    <script type="text/javascript">
+        function escape_string (string) {
+            var to_escape = ['\\', ';', ',', ':', '"'];
+            var hex_only = /^[0-9a-f]+$/i;
+            var output = "";
+            for (var i=0; i<string.length; i++) {
+                if($.inArray(string[i], to_escape) != -1) {
+                    output += '\\'+string[i];
+                }
+                else {
+                    output += string[i];
+                }
+            }
+            if (hex_only.test(output)) {
+                output = '"'+output+'"';
+            }
+            return output;
+        };
+        
+        function generate () {
+            var ssid = $('#ssid').val();
+            var hidden = $('#hidden').is(':checked');
+            var enc = $('#enc').val();
+            var key = $('#key').val();
+            // http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)
+            var qrstring = 'WIFI:S:'+escape_string(ssid)+';T:'+enc+';P:'+escape_string(key)+';';
+            if (hidden) {
+                qrstring += 'H:true';
+            }
+            qrstring += ';';
+            $('#qrcode').empty();
+            $('#qrcode').qrcode(qrstring);
+            $('#showssid').text('SSID: '+ssid);
+        };
+        
+        $(document).ready(function(){
+            $('#generate').click(function() {generate()});
+            $('#enc').change(function() {
+                if($(this).val() != 'nopass') {
+                   $('#key-p').show();
+                }
+                else {
+                   $('#key-p').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

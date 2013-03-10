@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1 id="title">pure JS WiFi QR Code Generator</h1>
+    <div id="about">
+        <p>
+        Ever wanted to create a cool QR code for your guests? But never wanted to type in your WiFi credentials into a form that submits them to a remote webserver to render the QR code? <i>QiFi</i> for the rescue! It will render the code in your browser, on your machine, so the WiFi stays as secure as it was before (read the code if you do not trust text on the internet :-))!
+        </p>
+        <p>
+        Don't trust your browser either? Just pipe the string
+        <pre>WIFI:S:&lt;SSID&gt;;T:&lt;WPA|WEP|&gt;;P:&lt;password&gt;;;</pre>
+        through the QR code generator of your choise after <a href="http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)">reading the documentation</a>.
+        </p>
+    </div>
     <div id="form">
         <p>
         <label for="ssid">SSID:</label><br/>

@@ -1,7 +1,12 @@
 #title,
 #showssid,
-#qrcode {
+#qrcode,
+#footer {
     text-align: center;
+}
+
+#footer img {
+    vertical-align: middle;
 }
 
 #form {

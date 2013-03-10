@@ -36,7 +36,10 @@
         </p>
         <p id="key-p">
         <label for="key" id="key-label">Key:</label><br/>
-        <input name="key" id="key" />
+        <input name="key" id="key" type="password" /><br/>
+
+        <label for="display-key">display key:</label>
+        <input type="checkbox" name="display-key" id="display-key" />
         </p>
         <p>
         <button id="generate">Generate!</button>
@@ -84,6 +87,14 @@
         
         $(document).ready(function(){
             $('#generate').click(function() {generate()});
+            $('#display-key').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#key').attr('type', 'text');
+                }
+                else {
+                    $('#key').attr('type', 'password');
+                }
+            });
             $('#enc').change(function() {
                 if($(this).val() != 'nopass') {
                    $('#key-p').show();

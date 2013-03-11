@@ -18,10 +18,10 @@
         through the QR code generator of your choice after <a href="http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)">reading the documentation</a>.
         </p>
     </div>
-    <div id="form">
+    <form id="form">
         <p>
         <label for="ssid">SSID:</label><br/>
-        <input name="ssid" id="ssid" /><br/>
+        <input name="ssid" id="ssid" required/><br/>
         
         <label for="hidden">Hidden:</label>
         <input type="checkbox" name="hidden" id="hidden" />
@@ -36,7 +36,7 @@
         </p>
         <p id="key-p">
         <label for="key" id="key-label">Key:</label><br/>
-        <input name="key" id="key" type="password" /><br/>
+        <input name="key" id="key" type="password" required/><br/>
 
         <label for="display-key">display key:</label>
         <input type="checkbox" name="display-key" id="display-key" />
@@ -44,7 +44,7 @@
         <p>
         <button id="generate">Generate!</button>
         </p>
-    </div>
+    </form>
     <h1 id="showssid"></h1>
     <div id="qrcode"></div>
     <div id="footer"><img src="qifi.png" alt="qifi logo"/> by <a href="https://github.com/evgeni">@evgeni</a></div>
@@ -86,7 +86,10 @@
         };
         
         $(document).ready(function(){
-            $('#generate').click(function() {generate()});
+            $('#form').submit(function() {
+                generate();
+                return false;
+            });
             $('#display-key').change(function() {
                 if ($(this).is(':checked')) {
                     $('#key').attr('type', 'text');
@@ -98,9 +101,11 @@
             $('#enc').change(function() {
                 if($(this).val() != 'nopass') {
                    $('#key-p').show();
+                   $('#key').attr('required','required');
                 }
                 else {
                    $('#key-p').hide();
+                   $('#key').removeAttr('required');
                 }
             });
         });

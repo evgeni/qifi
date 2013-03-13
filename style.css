@@ -30,3 +30,10 @@ code {
     display: block;
     margin: 0.5em;
 }
+
+input,
+select,
+button {
+    border-radius: 6px;
+    padding: 3px;
+}

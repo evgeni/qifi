@@ -40,9 +40,10 @@ button {
 
 .tooltip {
     position: relative;
+    display: inline;
 }
 
-.tooltip::before {
+.tooltip:hover:before {
     content: attr(data-tooltip);
     font-size: 80%;
     position: absolute;
@@ -53,11 +54,7 @@ button {
     color: #e0e0e0;
     padding: 0em 0.75em;
     line-height: 200%;
-    opacity: 0;
+    opacity: 0.8;
     border-radius: 6px;
-}
-
-.tooltip:hover::before {
-    opacity: 1;
     bottom: -3em;
 }

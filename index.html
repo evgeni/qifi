@@ -28,7 +28,7 @@
         <input name="ssid" id="ssid" required/><br/>
         
         <label for="hidden">Hidden:</label>
-        <input type="checkbox" name="hidden" id="hidden" />
+        <span  class="tooltip" data-tooltip="Is your SSID hidden?"><input type="checkbox" name="hidden" id="hidden"/></span>
         </p>
         <p>
         <label for="enc">Encryption:</label><br/>
@@ -43,7 +43,7 @@
         <input name="key" id="key" type="password" required/><br/>
 
         <label for="display-key">display key:</label>
-        <input type="checkbox" name="display-key" id="display-key" />
+        <span class="tooltip" data-tooltip="Should the key be displayed in plain-text here? The QR code will always contain the key in plain-text!"><input type="checkbox" name="display-key" id="display-key"/></span>
         </p>
         <p>
         <button id="generate">Generate!</button>

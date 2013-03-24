@@ -53,12 +53,25 @@ button {
     position: absolute;
     z-index: 999;
     white-space: nowrap;
-    left: 50%;
+    left: -100%;
     background: #000;
     color: #e0e0e0;
     padding: 0em 0.75em;
     line-height: 200%;
     opacity: 0.8;
     border-radius: 6px;
-    bottom: -3em;
+    top: 2em;
+}
+
+.tooltip:hover:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #000 transparent;
+    top: 0.35em;
+    left: 0;
+    opacity: 0.8;
 }

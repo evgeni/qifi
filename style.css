@@ -44,7 +44,7 @@ button {
 
 .tooltip {
     position: relative;
-    display: inline;
+    display: block;
 }
 
 .tooltip:hover:before {
@@ -52,8 +52,7 @@ button {
     font-size: 80%;
     position: absolute;
     z-index: 999;
-    white-space: nowrap;
-    left: -100%;
+    left: 0;
     background: #000;
     color: #e0e0e0;
     padding: 0em 0.75em;
@@ -72,6 +71,10 @@ button {
     border-style: solid;
     border-color: transparent transparent #000 transparent;
     top: 0.35em;
-    left: 0;
+    margin-left: -20px;
     opacity: 0.8;
+}
+
+.tooltip-label {
+    float: left;
 }

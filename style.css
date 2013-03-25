@@ -59,7 +59,7 @@ button {
     line-height: 200%;
     opacity: 0.8;
     border-radius: 6px;
-    top: 2em;
+    top: 2.8em;
 }
 
 .tooltip:hover:after {
@@ -70,7 +70,7 @@ button {
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #000 transparent;
-    top: 0.35em;
+    top: 1em;
     margin-left: -20px;
     opacity: 0.8;
 }

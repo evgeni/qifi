@@ -6,13 +6,18 @@
 
 #about,
 #contact,
-#generator {
+#generator,
+#history {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #showssid {
+    display: none;
+}
+
+#history {
     display: none;
 }
 

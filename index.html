@@ -50,6 +50,7 @@
     <div class="container">
     <section id="generator">
     <div class="page-header"><h1 id="title">pure JS WiFi QR Code Generator</h1></div>
+    <div id="history"></div>
     <form id="form">
         <p>
         <label for="ssid">SSID:</label>
@@ -75,6 +76,7 @@
         </p>
         <p>
         <button id="generate" class="btn btn-primary">Generate!</button>
+        <button id="save" type="button" class="btn">Save!</button>
         </p>
     </form>
     <h1 id="showssid"></h1>
@@ -130,6 +132,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bootstrap/bootstrap/js/bootstrap.min.js"></script>
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
+    <script src="jquery.storage.js/jquery.storage.js"></script>
     <script type="text/javascript">
         function escape_string (string) {
             var to_escape = ['\\', ';', ',', ':', '"'];
@@ -164,11 +167,56 @@
             $('#qrcode').qrcode(qrstring);
             $('#showssid').text('SSID: '+ssid);
         };
-        
+
+        function save () {
+            var ssid = $('#ssid').val();
+            if (!ssid) return;
+            var hidden = $('#hidden').is(':checked');
+            var enc = $('#enc').val();
+            var key = $('#key').val();
+            var storage = $.localStorage('qificodes');
+            if (!storage) storage = {};
+            storage[ssid] = {'hidden': hidden, 'enc': enc, 'key': key};
+            $.localStorage('qificodes', storage);
+            loadhistory();
+        };
+
+        function load(ssid) {
+            var storage = $.localStorage('qificodes');
+            if (ssid in storage) {
+                $('#ssid').val(ssid);
+                $('#enc').val(storage[ssid]['enc']);
+                $('#key').val(storage[ssid]['key']);
+                $('#hidden').prop('checked', storage[ssid]['hidden']);
+                generate();
+            }
+        };
+
+        function loadhistory () {
+            var storage = $.localStorage('qificodes');
+            if (storage) {
+                var history = $('#history');
+                var ssids = Object.keys(storage);
+                history.text('History: ');
+                for (var i=0; i<ssids.length; i++) {
+                    if (i>=1) history.append(', ');
+                    history.append('<a href="#">'+ssids[i]+'</a>');
+                }
+                history.show();
+                history.on('click', 'a', function(e) {
+                    e.preventDefault();
+                    load($(this).text());
+                });
+            }
+        };
+
         $(document).ready(function(){
             $('#form').submit(function() {
                 generate();
                 return false;
+            });
+            $('#save').click(function() {
+                save();
             });
             $('#display-key').change(function() {
                 if ($(this).is(':checked')) {
@@ -191,6 +239,7 @@
             $('#form').tooltip({
                 selector: "input[data-toggle=tooltip]"
             });
+            loadhistory();
         });
     </script>
 </body>

@@ -7,3 +7,6 @@
 [submodule "bootstrap"]
 	path = bootstrap
 	url = git://github.com/twitter/bootstrap.git
+[submodule "jquery.storage.js"]
+	path = jquery.storage.js
+	url = git://github.com/yckart/jquery.storage.js.git

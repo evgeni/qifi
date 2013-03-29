@@ -4,3 +4,6 @@
 [submodule "github-fork-ribbon-css"]
 	path = github-fork-ribbon-css
 	url = git://github.com/simonwhitaker/github-fork-ribbon-css.git
+[submodule "bootstrap"]
+	path = bootstrap
+	url = git://github.com/twitter/bootstrap.git

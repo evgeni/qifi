@@ -3,16 +3,84 @@
 <head>
     <title>pure JS WiFi QR Code Generator</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="all" href="style.css">
     <link rel="stylesheet" type="text/css" media="print" href="print.css">
     <link rel="stylesheet" href="github-fork-ribbon-css/gh-fork-ribbon.css" />
     <!--[if IE]>
         <link rel="stylesheet" href="github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
     <![endif]-->
+
+    <link href="bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="bootstrap/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="bootstrap/bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-    <h1 id="title">pure JS WiFi QR Code Generator</h1>
-    <div id="about">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">QiFi</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <section id="generator">
+    <div class="page-header"><h1 id="title">pure JS WiFi QR Code Generator</h1></div>
+    <form id="form">
+        <p>
+        <label for="ssid">SSID:</label>
+        <input name="ssid" id="ssid" type="text" required/><br/>
+        
+        <label class="pull-left" for="hidden">Hidden:</label>
+        <input type="checkbox" name="hidden" id="hidden" data-toggle="tooltip" title="Is your SSID hidden?" />
+        </p>
+        <p>
+        <label for="enc">Encryption:</label>
+        <select name="enc" id="enc">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">None</option>
+        </select>
+        </p>
+        <p id="key-p">
+        <label for="key" id="key-label">Key:</label>
+        <input name="key" id="key" type="password" required/><br/>
+
+        <label class="pull-left" for="display-key">display key:</label>
+        <input type="checkbox" name="display-key" id="display-key" data-toggle="tooltip" title="Should the key be displayed in plain-text here? The QR code will always contain the key in plain-text!"/>
+        </p>
+        <p>
+        <button id="generate" class="btn btn-primary">Generate!</button>
+        </p>
+    </form>
+    <h1 id="showssid"></h1>
+    <div id="qrcode"></div>
+    </section>
+    <section id="about">
+        <div class="page-header"><h1>About</h1></div>
         <p>
         Ever wanted to create a cool QR code for your guests? But never wanted to type in your WiFi credentials into a form that submits them to a remote webserver to render the QR code? <i>QiFi</i> for the rescue! It will render the code in your browser, on your machine, so the WiFi stays as secure as it was before (read the code if you do not trust text on the internet :-))!
         </p>
@@ -21,47 +89,27 @@
         <code>WIFI:S:&lt;SSID&gt;;T:&lt;WPA|WEP|&gt;;P:&lt;password&gt;;;</code>
         through the QR code generator of your choice after <a href="http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)">reading the documentation</a>.
         </p>
-    </div>
-    <form id="form">
-        <p>
-        <label for="ssid">SSID:</label><br/>
-        <input name="ssid" id="ssid" required/><br/>
-        
-        <label class="tooltip-label" for="hidden">Hidden:</label>
-        <span  class="tooltip" data-tooltip="Is your SSID hidden?"><input type="checkbox" name="hidden" id="hidden"/></span>
-        </p>
-        <p>
-        <label for="enc">Encryption:</label><br/>
-        <select name="enc" id="enc">
-            <option value="WPA">WPA/WPA2</option>
-            <option value="WEP">WEP</option>
-            <option value="nopass">None</option>
-        </select>
-        </p>
-        <p id="key-p">
-        <label for="key" id="key-label">Key:</label><br/>
-        <input name="key" id="key" type="password" required/><br/>
-
-        <label class="tooltip-label" for="display-key">display key:</label>
-        <span class="tooltip" data-tooltip="Should the key be displayed in plain-text here? The QR code will always contain the key in plain-text!"><input type="checkbox" name="display-key" id="display-key"/></span>
-        </p>
-        <p>
-        <button id="generate">Generate!</button>
-        </p>
-    </form>
-    <h1 id="showssid"></h1>
-    <div id="qrcode"></div>
-    <div id="footer">
-        <img src="qifi.png" alt="qifi logo"/> by <a href="https://github.com/evgeni">@evgeni</a><br />
-        <a href="http://flattr.com/thing/1191625/qifi-pure-JS-WiFi-QR-Code-Generator" target="_blank">
-        <img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
-    </div>
+    </section>
+    <section id="contact">
+        <div class="page-header"><h1>Contact</h1></div>
+        <p>QiFi was written by <a href="https://www.die-welt.net">Evgeni Golov</a>, using <a href="http://jquery.com/">jQuery</a>, <a href+"http://jeromeetienne.github.com/jquery-qrcode/">jQuery QRCode</a> and <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a>.</p>
+        <p>If you have any comments, suggestions, bugs or complaints: please write to: <a href="mailto:evgeni+qifi@golov.de">evgeni+qifi@golov.de</a></p>
+    </section>
     <div id="github" class="github-fork-ribbon-wrapper right">
         <div class="github-fork-ribbon">
             <a href="https://github.com/evgeni/qifi">Fork me on GitHub</a>
         </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <img src="qifi.png" alt="qifi logo"/> by <a href="https://github.com/evgeni">@evgeni</a><br />
+        <a href="http://flattr.com/thing/1191625/qifi-pure-JS-WiFi-QR-Code-Generator" target="_blank">
+        <img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
+      </div>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="bootstrap/bootstrap/js/bootstrap.min.js"></script>
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
     <script type="text/javascript">
         function escape_string (string) {
@@ -120,6 +168,9 @@
                    $('#key-p').hide();
                    $('#key').removeAttr('required');
                 }
+            });
+            $('#form').tooltip({
+                selector: "input[data-toggle=tooltip]"
             });
         });
     </script>

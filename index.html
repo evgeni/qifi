@@ -41,6 +41,13 @@
             <ul class="nav">
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li id="history-drop" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">History <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="history-drop">
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">clear history</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -195,19 +202,30 @@
         function loadhistory () {
             var storage = $.localStorage('qificodes');
             if (storage) {
-                var history = $('#history');
+                var history = $('#history-drop ul.dropdown-menu');
                 var ssids = Object.keys(storage);
-                history.text('History: ');
+                history.empty();
                 for (var i=0; i<ssids.length; i++) {
-                    if (i>=1) history.append(', ');
-                    history.append('<a href="#">'+ssids[i]+'</a>');
+                    history.append('<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="history-item">'+ssids[i]+'</a></li>');
                 }
-                history.show();
-                history.on('click', 'a', function(e) {
+                history.append('<li role="presentation" class="divider"></li>');
+                history.append('<li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="history-clear">clear history</a></li>');
+
+                history.on('click', 'a.history-item', function(e) {
                     e.preventDefault();
                     load($(this).text());
                 });
+                history.on('click', 'a.history-clear', function(e) {
+                    e.preventDefault();
+                    clearhistory();
+                });
+                $('#history-drop').show();
             }
+        };
+
+        function clearhistory () {
+            $.localStorage('qificodes', null);
+            $('#history-drop').hide();
         };
 
         $(document).ready(function(){

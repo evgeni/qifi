@@ -6,8 +6,7 @@
 
 #about,
 #contact,
-#generator,
-#history {
+#generator {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
@@ -17,7 +16,7 @@
     display: none;
 }
 
-#history {
+#history-drop {
     display: none;
 }
 

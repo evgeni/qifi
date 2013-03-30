@@ -1,8 +1,10 @@
-#title,
+.navbar,
+#generator .page-header,
 #about,
 #form,
 #github,
-#footer {
+#contact,
+.footer {
     display: none;
 }
 

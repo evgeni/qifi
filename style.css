@@ -27,6 +27,11 @@
     margin: 0px 0px 5px 5px;
 }
 
+.github-fork-ribbon-wrapper {
+    position: fixed !important;
+    z-index: 9999;
+}
+
 .footer {
     text-align: center;
     padding: 30px 0;

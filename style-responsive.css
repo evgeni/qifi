@@ -1,0 +1,21 @@
+@media (max-width: 979px) {
+    .github-fork-ribbon-wrapper {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #about,
+    #contact,
+    #generator {
+        width: 60%;
+    }
+}
+
+@media (max-width: 767px) {
+    #about,
+    #contact,
+    #generator {
+        width: 80%;
+    }
+}

@@ -95,6 +95,9 @@
         Ever wanted to create a cool QR code for your guests? But never wanted to type in your WiFi credentials into a form that submits them to a remote webserver to render the QR code? <i>QiFi</i> for the rescue! It will render the code in your browser, on your machine, so the WiFi stays as secure as it was before (read the code if you do not trust text on the internet :-))!
         </p>
         <p>
+        If you use the Save-button to store a code, this is still secure, as the data is stored in HTML5 localStorage and is never transmitted to the server (in contrast to cookie-based solutions).
+        </p>
+        <p>
         Don't trust your browser either? Just pipe the string
         <code>WIFI:S:&lt;SSID&gt;;T:&lt;WPA|WEP|&gt;;P:&lt;password&gt;;;</code>
         through the QR code generator of your choice after <a href="http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)">reading the documentation</a>.
@@ -120,7 +123,7 @@
     </section>
     <section id="contact">
         <div class="page-header"><h1>Contact</h1></div>
-        <p>QiFi was written by <a href="https://www.die-welt.net">Evgeni Golov</a>, using <a href="http://jquery.com/">jQuery</a>, <a href="http://jeromeetienne.github.com/jquery-qrcode/">jQuery QRCode</a> and <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a>.</p>
+        <p>QiFi was written by <a href="https://www.die-welt.net">Evgeni Golov</a>, using <a href="http://jquery.com/">jQuery</a>, <a href="http://jeromeetienne.github.com/jquery-qrcode/">jQuery QRCode</a>, <a href="http://yckart.github.io/jquery.storage.js/">jQuery Storage</a> and <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a>.</p>
         <p>If you have any comments, suggestions, bugs or complaints: please write to: <a href="mailto:evgeni+qifi@golov.de">evgeni+qifi@golov.de</a></p>
     </section>
     <div id="github" class="github-fork-ribbon-wrapper right fixed">

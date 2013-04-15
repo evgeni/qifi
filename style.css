@@ -52,3 +52,8 @@
 .footer-links li:first-child {
     padding-left: 0;
 }
+
+.anchor {
+  padding-top: 60px;
+  margin-top: -60px;
+}

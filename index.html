@@ -136,7 +136,7 @@
         <img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
       </div>
     </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bootstrap/bootstrap/js/bootstrap.min.js"></script>
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
     <script src="jquery.storage.js/jquery.storage.js"></script>
@@ -173,6 +173,7 @@
             $('#qrcode').empty();
             $('#qrcode').qrcode(qrstring);
             $('#showssid').text('SSID: '+ssid);
+            $('#save').show();
         };
 
         function save () {

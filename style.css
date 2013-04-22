@@ -16,6 +16,10 @@
     display: none;
 }
 
+#save {
+    display: none;
+}
+
 #history-drop {
     display: none;
 }

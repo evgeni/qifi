@@ -12,6 +12,10 @@
     margin-right: auto;
 }
 
+#export {
+    display: none;
+}
+
 #showssid {
     display: none;
 }

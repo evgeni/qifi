@@ -1,12 +1,12 @@
 [submodule "jquery-qrcode"]
 	path = jquery-qrcode
-	url = git://github.com/jeromeetienne/jquery-qrcode.git
+	url = https://github.com/jeromeetienne/jquery-qrcode.git
 [submodule "github-fork-ribbon-css"]
 	path = github-fork-ribbon-css
-	url = git://github.com/simonwhitaker/github-fork-ribbon-css.git
+	url = https://github.com/simonwhitaker/github-fork-ribbon-css.git
 [submodule "bootstrap"]
 	path = bootstrap
-	url = git://github.com/twitter/bootstrap.git
+	url = https://github.com/twitter/bootstrap.git
 [submodule "jquery.storage.js"]
 	path = jquery.storage.js
-	url = git://github.com/yckart/jquery.storage.js.git
+	url = https://github.com/yckart/jquery.storage.js.git

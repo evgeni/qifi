@@ -1,5 +1,6 @@
 #title,
 #showssid,
+#showkey,
 #qrcode {
     text-align: center;
 }
@@ -16,7 +17,8 @@
     display: none;
 }
 
-#showssid {
+#showssid,
+#showkey {
     display: none;
 }
 

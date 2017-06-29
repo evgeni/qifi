@@ -85,6 +85,7 @@
         </p>
     </form>
     <h1 id="showssid"></h1>
+    <h1 id="showkey"></h1>
     <div id="qrcode"></div>
     </section>
     <section id="about">
@@ -161,8 +162,10 @@
             var enc = $('#enc').val();
             if (enc != 'nopass') {
                 var key = $('#key').val();
+                $('#showkey').text(enc+': '+key);
             } else {
                 var key = '';
+                $('#showkey').text('');
             }
             // http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)
             var qrstring = 'WIFI:S:'+escape_string(ssid)+';T:'+enc+';P:'+escape_string(key)+';';

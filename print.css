@@ -5,7 +5,8 @@
 #form,
 #github,
 #contact,
-.footer {
+.footer,
+.github-fork-ribbon {
     display: none;
 }
 

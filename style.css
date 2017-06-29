@@ -39,6 +39,10 @@
     margin: 0px 0px 5px 5px;
 }
 
+#qrcode canvas {
+    padding: 2em;
+}
+
 .footer {
     text-align: center;
     padding: 30px 0;

@@ -171,9 +171,9 @@
                     output += string[i];
                 }
             }
-            if (hex_only.test(output)) {
-                output = '"'+output+'"';
-            }
+            //if (hex_only.test(output)) {
+            //    output = '"'+output+'"';
+            //}
             return output;
         };
 
@@ -188,7 +188,7 @@
                 var key = '';
                 $('#showkey').text('');
             }
-            // http://code.google.com/p/zxing/wiki/BarcodeContents#Wifi_Network_config_(Android)
+            // https://github.com/zxing/zxing/wiki/Barcode-Contents#wifi-network-config-android
             var qrstring = 'WIFI:S:'+escape_string(ssid)+';T:'+enc+';P:'+escape_string(key)+';';
             if (hidden) {
                 qrstring += 'H:true';

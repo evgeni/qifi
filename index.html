@@ -96,7 +96,7 @@
             <button id="generate" class="btn btn-primary">Generate!</button>
             <button id="save" type="button" class="btn" data-toggle="tooltip" title="Save the credentials for the WiFi in HTML5 localStorage for later use.">Save!</button>
             <a href="#" id="export" class="btn" target="_blank" data-toggle="tooltip" title="Export the QR code as a PNG.">Export!</a>
-            <a href="javascript:window.print()" data-toggle="tooltip" title="Print the QR code.">Print!</a>
+            <a href="javascript:window.print()" id="print" data-toggle="tooltip" title="Print the QR code.">Print!</a>
         </div>
     </form>
     <h1 id="showssid">SSID: none</h1>
@@ -202,6 +202,7 @@
             $('#qrcode').qrcode(qrstring);
             $('#showssid').text('SSID: '+ssid);
             $('#save').show();
+            $('#print').css('display', 'inline-block');
 
             var canvas = $('#qrcode canvas');
             if (canvas.length == 1) {

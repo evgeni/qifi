@@ -96,6 +96,7 @@
             <button id="generate" class="btn btn-primary">Generate!</button>
             <button id="save" type="button" class="btn" data-toggle="tooltip" title="Save the credentials for the WiFi in HTML5 localStorage for later use.">Save!</button>
             <a href="#" id="export" class="btn" target="_blank" data-toggle="tooltip" title="Export the QR code as a PNG.">Export!</a>
+            <a href="javascript:window.print()" id="print" data-toggle="tooltip" title="Print the QR code.">Print!</a>
         </div>
     </form>
     <h1 id="showssid">SSID: none</h1>
@@ -122,6 +123,9 @@
             <a href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android">Barcode Scanner</a> from ZXing.
         </p>
         <p>
+            <a href="https://play.google.com/store/apps/details?id=de.gavitec.android">NeoReader</a>.
+        </p>
+        <p>
             Every other Android Barcode Scanner based on the <a href="https://code.google.com/p/zxing/">ZXing library</a>.
         </p>
         <h3>Maemo</h3>
@@ -145,7 +149,7 @@
         <p>QiFi was written by <a href="https://www.die-welt.net">Evgeni Golov</a>, using <a href="http://jquery.com/">jQuery</a>, <a href="http://jeromeetienne.github.io/jquery-qrcode/">jQuery QRCode</a>, <a href="http://yckart.github.io/jquery.storage.js/">jQuery Storage</a> and <a href="http://twitter.github.io/bootstrap">Twitter Bootstrap</a>.</p>
         <p>If you have any comments, suggestions, bugs or complaints: please write to: <a href="mailto:evgeni+qifi@golov.de">evgeni+qifi@golov.de</a>.</p>
     </section>
-    <a class="github-fork-ribbon right-top fixed" href="https://github.com/evgeni/qifi" title="Fork me on GitHub">Fork me on GitHub</a>
+    <a class="github-fork-ribbon right-top fixed" href="https://github.com/evgeni/qifi" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     </div>
     <footer class="footer">
       <div class="container">
@@ -154,7 +158,7 @@
         <img src="https://button.flattr.com/flattr-badge-large.png" alt="Flattr this" title="Flattr this"></a>
       </div>
     </footer>
-    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
     <script src="jquery.storage.js/jquery.storage.js"></script>
@@ -198,6 +202,7 @@
             $('#qrcode').qrcode(qrstring);
             $('#showssid').text('SSID: '+ssid);
             $('#save').show();
+            $('#print').css('display', 'inline-block');
 
             var canvas = $('#qrcode canvas');
             if (canvas.length == 1) {

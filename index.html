@@ -100,7 +100,7 @@
         </div>
     </form>
     <h1 id="showssid">SSID: none</h1>
-    <h1 id="showkey">WPA: none</h1>
+    <h1 id="showkey">Passphrase: none</h1>
     <div id="qrcode"></div>
     </section>
     <section id="about">
@@ -187,7 +187,7 @@
             var enc = $('#enc').val();
             if (enc != 'nopass') {
                 var key = $('#key').val();
-                $('#showkey').text(enc+': '+key);
+                $('#showkey').text(enc+' Passphrase: '+key);
             } else {
                 var key = '';
                 $('#showkey').text('');

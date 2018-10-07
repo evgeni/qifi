@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="style-responsive.css">
     <link rel="stylesheet" type="text/css" media="print" href="print.css">
     <link rel="stylesheet" href="github-fork-ribbon-css/gh-fork-ribbon.css" />
+    <link rel="icon" href="qifi.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
     <!--[if IE]>
         <link rel="stylesheet" href="github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
     <![endif]-->
@@ -25,8 +27,6 @@
     </style>
 </head>
 <body>
-
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -156,7 +156,7 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <img src="qifi.png" alt="qifi logo"/> by <a href="https://github.com/evgeni">@evgeni</a><br/>
+        <img src="qifi-small.png" alt="qifi logo"/> by <a href="https://github.com/evgeni">@evgeni</a><br/>
         <span style="color: #999999;">QR Code is a registered trademark of DENSO WAVE INCORPORATED in the United States and other countries.</span>
       </div>
     </footer>
@@ -303,6 +303,17 @@
             });
             loadhistory();
         });
+
+        // Service Worker installation
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js', {scope: './'}).then(function(registration) {
+                    console.log('[Service Worker] Successfully installed');
+                }).catch(function(error) {
+                    console.log('[Service Worker] Installation failed:', error);
+                })
+            });
+        }
     </script>
 </body>
 </html>

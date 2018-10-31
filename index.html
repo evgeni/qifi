@@ -160,7 +160,7 @@
     </footer>
     <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="jquery-qrcode/jquery.qrcode.min.js"></script>
+    <script src="jquery-qrcode/dist/jquery-qrcode.min.js"></script>
     <script src="jquery.storage.js/jquery.storage.js"></script>
     <script type="text/javascript">
         function escape_string (string) {
@@ -199,7 +199,11 @@
             }
             qrstring += ';';
             $('#qrcode').empty();
-            $('#qrcode').qrcode(qrstring);
+            $('#qrcode').qrcode({
+                text: qrstring,
+                quiet: 1,
+                background: '#FFF',
+            });
             $('#showssid').text('SSID: '+ssid);
             $('#save').show();
             $('#print').css('display', 'inline-block');

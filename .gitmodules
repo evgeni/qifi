@@ -1,6 +1,6 @@
 [submodule "jquery-qrcode"]
 	path = jquery-qrcode
-	url = https://github.com/jeromeetienne/jquery-qrcode.git
+	url = https://github.com/lrsjng/jquery-qrcode.git
 [submodule "github-fork-ribbon-css"]
 	path = github-fork-ribbon-css
 	url = https://github.com/simonwhitaker/github-fork-ribbon-css.git

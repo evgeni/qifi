@@ -5,7 +5,9 @@
 #form,
 #github,
 #contact,
-.footer,
+.footer {
+    display: none;
+}
 
 #showssid,
 #showkey {

@@ -12,7 +12,6 @@ self.addEventListener('install', function(event) {
   '/index.html',
   '/style.css',
   '/style-responsive.css',
-  '/github-fork-ribbon-css/gh-fork-ribbon.css',
   '/bootstrap/dist/css/bootstrap.css',
   '/qifi.png',
   '/qifi-small.png',

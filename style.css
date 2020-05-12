@@ -75,3 +75,25 @@
 img {
     border: 0;
 }
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #about,
+    #contact,
+    #generator {
+        width: 60%;
+    }
+}
+
+@media (max-width: 767px) {
+    #about,
+    #contact,
+    #generator {
+        width: 80%;
+    }
+
+    .footer {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}

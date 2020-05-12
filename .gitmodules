@@ -1,9 +1,6 @@
 [submodule "jquery-qrcode"]
 	path = jquery-qrcode
 	url = https://github.com/jeromeetienne/jquery-qrcode.git
-[submodule "github-fork-ribbon-css"]
-	path = github-fork-ribbon-css
-	url = https://github.com/simonwhitaker/github-fork-ribbon-css.git
 [submodule "bootstrap"]
 	path = bootstrap
 	url = https://github.com/twitter/bootstrap.git

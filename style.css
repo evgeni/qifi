@@ -43,6 +43,7 @@
 
 #qrcode canvas {
     padding: 2em;
+    image-rendering: crisp-edges;
 }
 
 .footer {

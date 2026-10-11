@@ -1,9 +1,0 @@
-[submodule "jquery-qrcode"]
-	path = jquery-qrcode
-	url = https://github.com/jeromeetienne/jquery-qrcode.git
-[submodule "bootstrap"]
-	path = bootstrap
-	url = https://github.com/twitter/bootstrap.git
-[submodule "jquery.storage.js"]
-	path = jquery.storage.js
-	url = https://github.com/yckart/jquery.storage.js.git
